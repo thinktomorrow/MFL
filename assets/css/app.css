@@ -1,0 +1,167 @@
+body{
+  background: #191919;
+  font-family: 'Varela', sans-serif;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
+.box{
+  width: 75vw;
+  height: 50vh;
+  display: block;
+  background-image:url('../img/metallic.jpg');
+  position: absolute;
+  z-index: 0;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+
+.launch{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    transform: translateY(50%);
+}
+
+.key{
+  transform: translateY(50%);
+  width: 150px;
+  height: 150px;
+  transition: all 1s;
+  z-index: 2;
+}
+
+.key a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-indent: -9999px;
+    background-image: url('../img/key.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    transition: all 1s;
+}
+
+.radial.light {
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  border-radius: 50px;
+  background-color: #c0392b;
+
+}
+
+.sliding-doors{
+  width: 210px;
+  height: 230px;
+  position: absolute;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  -moz-box-shadow:    inset 0 0 10px #000000;
+  -webkit-box-shadow: inset 0 0 10px #000000;
+  box-shadow:         inset 0 0 10px #000000;
+}
+
+.sliding-doors:before,
+.sliding-doors:after{
+  content: "";
+  width: 105px !important;
+  height: 230px;
+  left: 0px;
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  -webkit-transition: 2000ms;
+  border: 3px solid rgba(0, 0, 0, 0.5);
+  background-image: url('../img/gun_metal.png');
+  background-repeat: repeat;
+  }
+
+.activate{
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+figure#launchtime {
+  min-height: 300px;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  flex-direction: column;
+  position: absolute;
+  z-index: -5;
+}
+figure#launchtime button {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  border: none;
+  color: #fff;
+  font-weight: 900;
+  font-size: 2.5rem;
+  background: red;
+  text-shadow: 0 3px 1px rgba(122,17,8,.8);
+  box-shadow: 0 8px 0 rgb(183,9,0),0 15px 20px rgba(0,0,0,.35);
+  text-transform: uppercase;
+  transition: .4s all ease-in;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  margin-top: -75px;
+  margin-left: 5px;
+}
+figure#launchtime button span { position:relative; }
+figure#launchtime button.pressed {
+  padding-top: 3px;
+  transform: translateY(4px);
+  box-shadow: 0 4px 0 rgb(183,0,0), 0 8px 6px rgba(0,0,0,.45);
+}
+
+.opened:before{
+    left: -105px;
+}
+.opened:after{
+    left: 105px;
+}
+
+.warning{
+    -webkit-animation: warning .75s linear infinite;
+    animation: warning .75s linear infinite;
+    -webkit-animation-delay: 1.3s;
+    animation-delay: 1.3s;
+}
+
+@-webkit-keyframes warning{
+    0%{
+        background-color: #191919;
+    }
+    50%{
+        background-color: red;
+    }
+    100%{
+        background-color: #191919;
+    }
+}
+
+@keyframes{
+    0%{
+        background-color: #191919;
+    }
+    50%{
+        background-color: red;
+    }
+    100%{
+        background-color: #191919;
+    }
+}
