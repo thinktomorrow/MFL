@@ -1,20 +1,8 @@
 $(document).on('click', '.MFL', function(e){
     e.preventDefault();
-    togglePlay();
+    play();
+    redirect();
 });
-
-var playing = 0;
-function togglePlay(){
-    if(playing == 0){
-        play();
-        playing++;
-        return playing;
-    }else{
-        stop();
-        playing--;
-        return playing;
-    }
-}
 
  function play(){
     $('#audio').get(0).play();
@@ -22,44 +10,35 @@ function togglePlay(){
  function stop(){
      $('#audio').get(0).pause();
  }
+
+ function redirect(){
+    var delay = 15000; 
+    var url = 'https://seds.be'
+    setTimeout(function(){ window.location = url; }, delay);
+ }
  $('.key a').click(function(e){
     $(this).toggleClass('activate');
     checkAll();
  });
 
-var checkAll = function() {
-    var allDivs = $(".key a");
-    var classedDivs = $(".key a.activate");
-    var allDivsHaveClass = (allDivs.length === classedDivs.length);
+ var checkAll = function() {
+ var allDivs = $(".key a");
+ var classedDivs = $(".key a.activate");
 
-    if (allDivsHaveClass) {
-        $('.sliding-doors').addClass('opened');
-        $('body').addClass('warning');
-        // Slight delay
-        setTimeout(function(){
-            $('.grabber').addClass('glitch');
-            $('#launchtime').css('z-index', '5');
-            $('#launchtime').css('background-color', '#191919');
-            isTheSafetyReallyOff();
-        }, 1300);
-    }else{
-        $('body').removeClass('warning');
-        $('.sliding-doors').removeClass('opened');
-        $('.grabber').removeClass('glitch');
-        $('#launchtime').css('z-index', '-5');
-        stop();
-        playing = 0;
-        return playing;
-    }
-}
+ var allDivsHaveClass = (allDivs.length === classedDivs.length);
 
-function isTheSafetyReallyOff(){
-    var allDivs = $(".key a");
-    var classedDivs = $(".key a.activate");
-    var allDivsHaveClass = (allDivs.length === classedDivs.length);
-    if(!allDivsHaveClass){
-        $('.sliding-doors::before').css('z-index', '6');
-        $('.sliding-doors::after').css('z-index', '5');
-         $('#launchtime').css('z-index', '-1');
-    }
+if (allDivsHaveClass) {
+    $('.sliding-doors').addClass('opened');
+    $('body').addClass('warning');
+    setTimeout(function(){
+        $('#launchtime').css('z-index', '5');
+        $('.sliding-doors').css('background-color', '#191919');
+    }, 1300);
+}else{
+    $('body').removeClass('warning');
+    $('#launchtime').css('z-index', '-5');
+    $('.sliding-doors').removeClass('opened');
+    $('.sliding-doors').css('background-color', 'transparent');
+    stop();
 }
+};
