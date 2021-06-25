@@ -12,8 +12,8 @@ $(document).on('click', '.MFL', function(e){
  }
 
  function redirect(){
-    var delay = 15000; 
-    var url = 'https://seds.be'
+    var delay = 12000;
+    var url = 'https://samensmaakmaken.be'
     setTimeout(function(){ window.location = url; }, delay);
  }
  $('.key a').click(function(e){
