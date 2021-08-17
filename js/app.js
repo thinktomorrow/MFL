@@ -13,7 +13,7 @@ $(document).on('click', '.MFL', function(e){
 
  function redirect(){
     var delay = 12000;
-    var url = 'https://samensmaakmaken.be'
+    var url = 'https://eduplay.be'
     setTimeout(function(){ window.location = url; }, delay);
  }
  $('.key a').click(function(e){
