@@ -1,19 +1,20 @@
 $(document).on('click', '.MFL', function(e){
     e.preventDefault();
-    play();
-    redirect();
+    $('#audio').get(0).play();
+    setTimeout(function(){
+       $('#iframe').toggleClass('hidden');
+       $('#audio').get(0).pause();
+       $('#suspense').get(0).pause();
+
+    },5000);
+    // redirect();
 });
 
- function play(){
-    $('#audio').get(0).play();
- }
- function stop(){
-     $('#audio').get(0).pause();
- }
+
 
  function redirect(){
-    var delay = 15000; 
-    var url = 'https://seds.be'
+    var delay = 5000; 
+    var url = 'https://kalibermaatwerk.be'
     setTimeout(function(){ window.location = url; }, delay);
  }
  $('.key a').click(function(e){
@@ -33,12 +34,14 @@ if (allDivsHaveClass) {
     setTimeout(function(){
         $('#launchtime').css('z-index', '5');
         $('.sliding-doors').css('background-color', '#191919');
+        $('#suspense').get(0).play();
     }, 1300);
 }else{
     $('body').removeClass('warning');
     $('#launchtime').css('z-index', '-5');
     $('.sliding-doors').removeClass('opened');
     $('.sliding-doors').css('background-color', 'transparent');
+    $('#suspense').get(0).pause();
     stop();
 }
 };

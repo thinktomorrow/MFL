@@ -1,15 +1,26 @@
 body{
   background: #191919;
-  font-family: 'Varela', sans-serif;
+  font-family: Arial, sans-serif;
   height: 100%;
 }
-
+.hidden{
+  visibility: hidden;
+  opacity: 0;
+}
+#iframe{
+  position: absolute;
+  top:0; left:0; bottom:0; right: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  transition: 0.3s ease-in;
+}
 .launch{
     display: flex;
     flex-direction: row;
     width: 100%;
     justify-content: space-around;
-    margin-top: 15rem;
+    margin-top: 8rem;
 }
 
 .key{
@@ -17,6 +28,10 @@ body{
     width: 150px;
     height: 150px;
     transition: all 1s;
+    background-image: url('img/key-bg.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 .key a{
@@ -151,25 +166,13 @@ figure#launchtime button.pressed {
 
 .grabber {
   color: white;
-  font-size: 75px;
-  position: relative;
-  width: 850px;
+  font-weight: bolder;
+  font-size: 50px;
   margin: 0 auto;
   margin-top: 1em;
 }
 
-.glitch:before {
-  content: attr(data-text);
-  position: absolute;
-  left: -2px;
-  text-shadow: 1px 0 blue;
-  top: 0;
-  color: white;
-  background: transparent;
-  overflow: hidden;
-  clip: rect(0, 900px, 0, 0);
-  animation: noise-anim-2 3s infinite linear alternate-reverse;
-}
+.text-center{text-align: center;}
 
 @keyframes noise-anim {
   0% {
