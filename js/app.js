@@ -3,7 +3,6 @@ var jsConfetti = new JSConfetti();
 var clicked = false;
 
 $(document).on('click', '.MFL', function(e){
-
     // Do not click more than once dog.
     if(clicked) return;
     clicked = true;
@@ -12,15 +11,15 @@ $(document).on('click', '.MFL', function(e){
     $('#audio').get(0).play();
 
     setTimeout(function(){
-       $('#iframe').toggleClass('hidden');
-       $('#audio').get(0).pause();
-       $('#suspense').get(0).pause();
-
+        $('#iframe').toggleClass('hidden');
+        $('#audio').get(0).pause();
+        $('#suspense').get(0).pause();
         $('#winning').get(0).play();
-        sprinkleConfetti();
 
-    },4000);
-    // redirect();
+        sprinkleConfetti();
+    }, 4000);
+
+    redirect();
 });
 
 function sprinkleConfetti()
@@ -28,23 +27,21 @@ function sprinkleConfetti()
     var max = 50;
 
     setInterval(function(){
-
         if(max === 0) return;
+
         max -= 1;
-        console.log(max);
 
         jsConfetti.addConfetti({
             confettiNumber: Math.round(Math.random() * 300),
         });
     }, 600)
-
 }
 
 
 
  function redirect(){
-    var delay = 5000;
-    var url = 'https://kalibermaatwerk.be'
+    var delay = 10000;
+    var url = 'https://mauquoy.com/'
     setTimeout(function(){ window.location = url; }, delay);
  }
  $('.key a').click(function(e){
