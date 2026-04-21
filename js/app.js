@@ -11,7 +11,6 @@ $(document).on('click', '.MFL', function(e){
     $('#audio').get(0).play();
 
     setTimeout(function(){
-        $('#iframe').toggleClass('hidden');
         $('#audio').get(0).pause();
         $('#suspense').get(0).pause();
         $('#winning').get(0).play();
@@ -25,6 +24,12 @@ $(document).on('click', '.MFL', function(e){
 function sprinkleConfetti()
 {
     var max = 50;
+
+    $('body').removeClass('warning');
+    jsConfetti.addConfetti({
+        confettiNumber: Math.round(Math.random() * 300),
+    });
+    max -= 1;
 
     setInterval(function(){
         if(max === 0) return;
@@ -41,7 +46,9 @@ function sprinkleConfetti()
 
  function redirect(){
     var delay = 10000;
-    var url = 'https://mauquoy.com/'
+    var flashDuration = 150;
+    var url = 'https://hanolux.be/'
+    setTimeout(function(){ $('#flash').addClass('active'); }, delay - flashDuration);
     setTimeout(function(){ window.location = url; }, delay);
  }
  $('.key a').click(function(e){
