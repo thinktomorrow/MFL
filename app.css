@@ -16,6 +16,31 @@ body{
 #flash.active{
   opacity: 1;
 }
+
+#release-site {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #111;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease-in;
+}
+
+#release-site.active {
+  opacity: 1;
+}
+
+#release-site img {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  object-position: top center;
+}
+
 .launch{
     display: flex;
     flex-direction: row;
@@ -49,12 +74,13 @@ body{
 
 
 .sliding-doors{
-  width: 210px;
-  height: 230px;
+  width: 250px;
+  height: 250px;
   position: absolute;
   overflow: hidden;
   display: flex;
   flex-direction: row;
+  box-sizing: border-box;
   -moz-box-shadow:    inset 0 0 10px #000;
   -webkit-box-shadow: inset 0 0 10px #000;
   box-shadow:         inset 0 0 10px #000;
@@ -63,8 +89,8 @@ body{
 .sliding-doors:before,
 .sliding-doors:after{
   content: "";
-  width: 105px !important;
-  height: 230px;
+  width: 125px !important;
+  height: 250px;
   left: 0px;
   position: relative;
   display: inline-block;
@@ -123,10 +149,17 @@ figure#launchtime button.pressed {
 }
 
 .opened:before{
-    left: -105px;
+    left: -125px;
 }
 .opened:after{
-    left: 105px;
+    left: 125px;
+}
+
+.sliding-doors.opened {
+  background-color: transparent !important;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .warning{
@@ -170,7 +203,7 @@ figure#launchtime button.pressed {
   font-weight: bolder;
   font-size: 50px;
   margin: 0 auto;
-  margin-top: 1em;
+  margin-top: 2em;
 }
 
 .text-center{text-align: center;}

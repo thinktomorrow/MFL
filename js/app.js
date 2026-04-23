@@ -3,11 +3,14 @@ var jsConfetti = new JSConfetti();
 var clicked = false;
 
 $(document).on('click', '.MFL', function(e){
+    var $button = $(this);
+
     // Do not click more than once dog.
     if(clicked) return;
     clicked = true;
 
     e.preventDefault();
+    $button.addClass('pressed');
     $('#audio').get(0).play();
 
     setTimeout(function(){
@@ -26,6 +29,7 @@ function sprinkleConfetti()
     var max = 50;
 
     $('body').removeClass('warning');
+    $('#release-site').addClass('active');
     jsConfetti.addConfetti({
         confettiNumber: Math.round(Math.random() * 300),
     });
@@ -46,9 +50,7 @@ function sprinkleConfetti()
 
  function redirect(){
     var delay = 10000;
-    var flashDuration = 150;
-    var url = 'https://hanolux.be/'
-    setTimeout(function(){ $('#flash').addClass('active'); }, delay - flashDuration);
+    var url = 'https://hanolux.be/shop'
     setTimeout(function(){ window.location = url; }, delay);
  }
  $('.key a').click(function(e){
